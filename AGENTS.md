@@ -1,0 +1,9 @@
+# Tech Inbox working agreements
+
+- Tech Inbox uses the owner-approved public repository `Rizakura0110/tech-inbox` and is integrated into `rizakura-hontai` through a commit-pinned Git submodule. The npm package remains `private: true`; do not publish it to npm.
+- Keep product behavior, API contracts, table definitions, backup formats and PWA identity compatible with the foundation. Tech Inbox owns article/tag/activity/backup domain code, UI, schema definitions and metadata processing; the foundation owns authentication, shared protections, HTTP/D1/Queue adapters, Cloudflare bindings, migrations, deployment and PWA delivery.
+- Do not add production credentials, owner allowlists, real article data, Cloudflare configuration or independent deployment commands here. Tests must use synthetic data and injected capabilities.
+- Browser code must not import server/schema/metadata entrypoints. Do not import foundation application internals or Daymark. Pass required HTTP, UI, repository, Queue, clock and parser capabilities through typed ports.
+- Keep tools, dependencies, caches, temporary files and generated output inside the owner's authorized workspace. Use pinned Node.js/pnpm and preserve the exact registry versions, lockfile integrity, seven-day release gate and reviewed install-script policy.
+- Before a phase commit, run format, lint, source/test type checks, tests, coverage, declaration build, dependency audit and the relevant foundation integration checks. Review the full diff, generated-file ignores and tracked content for secrets. Do not bypass a failed gate.
+- Push the tested Tech Inbox commit before updating and pushing the foundation gitlink. Never follow a moving branch during build, force-push, rewrite published history or implicitly deploy. A phase-end push does not authorize resource creation, billing changes, remote data changes or deployment.
